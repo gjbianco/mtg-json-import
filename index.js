@@ -1,6 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
-var mtg = require('./AllCards-x.json');
+var mtg = require('./RTR.json');
 var _ = require('lodash');
 
 // Connection URL
@@ -12,7 +12,7 @@ MongoClient.connect(url, function(err, db) {
 
   var collection = db.collection('cards');
 
-  _.forEach(mtg, function(val) {
+  _.forEach(mtg.cards, function(val) {
     collection.insert(val);
   });
 
